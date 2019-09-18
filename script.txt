@@ -1,27 +1,55 @@
 // Copyright © 2019, Matjaž Guštin <dev@matjaz.it> <https://matjaz.it>
 // Released under the BSD 3-clause license.
 
-?hp < 5
-  activate potion
+// Loadout 1: ranged, e.g. double crossbow
+// Loadout 4: 2x single-handed melee close quarters
+//            e.g. dual-wielding swords
 
 // Rocky plateau
 ?loc = rocky
+  equip shovel
   ?pickup = stone
     equip star  // quick picking up
-  ?target = bolder
-    equip shovel
   // TODO: boss
 
 // Deadwood Canyon
 ?loc = valley
+  equipR hatchet
+  equipL ouroboros  // healing
   ?pickup = wood
-    equip star  // quick picking up
-  ?foe = deadwood_tree
+    equipR star  // quick picking up
     equipL ouroboros  // healing
-    equipR hatchet
   ?foe = mosquito
     loadout 1
   ?foe = scarab
     loadout 4
-  ?foe = Xyloalgia
+  ?foe = boss
     loadout 4
+
+// Caves of Fear
+?loc = caves
+  equipL ouroboros
+  ?pickup = tar
+    equipR star  // quick picking up
+    equipL ouroboros  // healing
+  ?foe = bat
+    loadout 1
+  ?foe = spider
+    loadout 1
+  ?foe = eggs
+    loadout 1
+  ?foe.distance < 10
+    loadout 4
+  ?foe = boss
+    loadout 4
+
+// General rules
+// Apply health potion on low health
+?hp < 5
+  activate potion
+
+// Equip Experience stone to kill a boss
+// and get double XP from the kill
+?foe = boss & foe.armor = 0 & foe.hp < 25
+  equipR sword
+  equipL experience
