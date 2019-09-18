@@ -2,8 +2,10 @@
 // Released under the BSD 3-clause license.
 
 // Loadout 1: ranged, e.g. double crossbow
+// Loadout 2: single-handed melee with dashing shield
+// Loadout 3: armor-crushing, e.g. 2x warhammer
 // Loadout 4: 2x single-handed melee close quarters
-//            e.g. dual-wielding swords
+//            e.g. dual-wielding swords         
 
 // Rocky plateau
 ?loc = rocky
@@ -25,6 +27,8 @@
     loadout 4
   ?foe.distance < 10
     loadout 4
+  ?foe = waypoint
+    > Approaching boss
   ?foe = boss
     loadout 4
 
@@ -42,14 +46,46 @@
     loadout 1
   ?foe.distance < 10
     loadout 4
+  ?foe = waypoint
+    > Approaching boss
   ?foe = boss
     loadout 4
 
 // Mushroom forest
 ?loc = fungus
   equip poison staff
+  ?foe = waypoint
+    > Approaching boss
 
-// General rules
+// Haunted halls
+?loc = crypt
+  equip vigor staff
+  ?foe = waypoint
+    > Approaching boss
+
+// Boiling mine
+?loc = mine
+  equipL ouroboros
+  ?pickup = bronze
+    equipR star  // quick picking up
+    equipL ouroboros  // healing
+  ?foe = master
+    loadout 1
+  ?foe = elemental
+    loadout 1
+  ?foe = walker
+    loadout 2
+    ?foe.distance < 10
+      loadout 3
+  ?foe = waypoint
+    > Approaching boss
+  ?foe = guardian
+    loadout 1
+    // TODO use shield if higher difficulty
+    // TODO use dashing when hit
+    // TODO then melee
+
+// General rules, applied after all others
 // Apply health potion on low health
 ?hp < 5
   activate potion
