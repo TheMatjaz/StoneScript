@@ -7,7 +7,7 @@
 // Rocky plateau
 ?loc = rocky
   ?pickup = stone
-    equip star  // to pick up quickly
+    equip star  // quick picking up
   ?target = bolder
     equip shovel
   // TODO: boss
@@ -15,15 +15,13 @@
 // Deadwood Canyon
 ?loc = valley
   ?pickup = wood
-    equip star  // to pick up quickly
-  equipL ouroboros
-  equipR hatchet
+    equip star  // quick picking up
+  ?foe = deadwood_tree
+    equipL ouroboros  // healing
+    equipR hatchet
   ?foe = mosquito
-    > Detected: Mosquito
     loadout 1
   ?foe = scarab
-    > Detected: Scarab
     loadout 4
   ?foe = Xyloalgia
-    > Detected: Boss Xyloalgia
     loadout 4
