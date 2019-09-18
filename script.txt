@@ -23,6 +23,8 @@
     loadout 1
   ?foe = scarab
     loadout 4
+  ?foe.distance < 10
+    loadout 4
   ?foe = boss
     loadout 4
 
@@ -42,6 +44,10 @@
     loadout 4
   ?foe = boss
     loadout 4
+
+// Mushroom forest
+?loc = fungus
+  equip poison staff
 
 // General rules
 // Apply health potion on low health
