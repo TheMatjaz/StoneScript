@@ -4,12 +4,18 @@
 ?hp < 5
   activate potion
 
+// Rocky plateau
 ?loc = rocky
-  > Detected: Rocky Plateau
-  equip shovel
+  ?pickup = stone
+    equip star  // to pick up quickly
+  ?target = bolder
+    equip shovel
+  // TODO: boss
 
+// Deadwood Canyon
 ?loc = valley
-  > Detected: Deadwood Canyon
+  ?pickup = wood
+    equip star  // to pick up quickly
   equipL ouroboros
   equipR hatchet
   ?foe = mosquito
@@ -19,5 +25,5 @@
     > Detected: Scarab
     loadout 4
   ?foe = Xyloalgia
-    > Detected: Boss Xyaloalgia
+    > Detected: Boss Xyloalgia
     loadout 4
