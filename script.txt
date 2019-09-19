@@ -56,6 +56,12 @@
   equip poison staff
   ?foe = waypoint
     > Approaching boss
+  ?foe = boss
+    equip poison staff
+  ?foe = boss_fat
+    loadout 4
+  ?foe = boss_skinny
+    loadout 4
 
 // Haunted halls
 ?loc = crypt
@@ -84,6 +90,29 @@
     // TODO use shield if higher difficulty
     // TODO use dashing when hit
     // TODO then melee
+
+// Icy ridge
+?loc = icy
+  equipL ouroboros
+  ?foe = elemental
+    loadout 1
+  ?foe = pillar
+    loadout 1
+  ?foe = ki
+    loadout 1
+  ?foe.distance < 10
+    loadout 4
+  ?foe = yeti
+    ?foe.distance > 5
+      equip dashing shield
+    ?foe.distance > 2
+      // The shovel allows the player to move
+      // to distance 2 from the foe, which is
+      // too close for the boss to attack.
+      // We can basically avoid all attacks
+      equip shovel
+    ?foe.distance < 3
+      loadout 4
 
 // General rules, applied after all others
 // Apply health potion on low health
