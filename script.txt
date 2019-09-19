@@ -106,13 +106,21 @@
     ?foe.distance > 5
       equip dashing shield
     ?foe.distance > 2
-      // The shovel allows the player to move
-      // to distance 2 from the foe, which is
-      // too close for the boss to attack.
-      // We can basically avoid all attacks
+      // The shovel has an attack range of 1
+      // so it forces the player to move very
+      // very close. So close that it can avoid
+      // the attacks (snowballs)
       equip shovel
     ?foe.distance < 3
       loadout 4
+
+// Temple
+?loc = temple
+  equip vigor staff  // TODO icy staff is better
+
+// Boss chamber in the temple
+?loc = nagaraja
+  loadout 4
 
 // General rules, applied after all others
 // Apply health potion on low health
