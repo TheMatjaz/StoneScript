@@ -1,19 +1,32 @@
 StoneScript
 ===========
 
-My StoneScripts used in the ASCII-art game [Stone Story
+My StoneScript used in the **amazing** ASCII-art game [Stone Story
 RPG](https://store.steampowered.com/app/603390/Stone_Story_RPG/)
 to automate it.
 
-The documentation for the scripting language is available on the [game
+
+
+Usage
+----------------------------------------
+
+Copy-paste the
+[script.txt](https://raw.githubusercontent.com/TheMatjaz/StoneScript/master/script.txt)
+file into the mind stone. The script contains multiple conditionals to work in
+every level. In case the script does not behave properly, verify that you
+have a matching version of the game with the version indicated in the script.
+
+In case you want to do any modifications, the documentation for the
+scripting language is available on the [game
 website](http://stonestoryrpg.com/stonescript/help.txt)
 
-You are free to use the scripts as you wish as long as you include my name,
+You are free to use the script as you wish as long as you include my name,
 as indicated in the license.
 
 
+
 Additional information about the game
--------------------------------------
+----------------------------------------
 
 ### Elements and runes
 
