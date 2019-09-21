@@ -149,7 +149,7 @@
     equip fire staff
   ?foe.distance < 10
     equip fire staff
-  // HrÍmnir
+  // Hrímnir
   ?foe = yeti
     ?foe.distance > 2
       // The shovel has an attack range of 1

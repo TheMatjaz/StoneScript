@@ -1,9 +1,22 @@
 StoneScript
 ===========
 
-My StoneScript used in the **amazing** ASCII-art game [Stone Story
+My StoneScript code used in the **amazing** ASCII-art game [Stone Story
 RPG](https://store.steampowered.com/app/603390/Stone_Story_RPG/)
 to automate it.
+
+
+What is this?
+----------------------------------------
+
+The game Stone Story RPG allows you to write a script to automate the player's
+behaviour in the levels, so you don't have to keep looking and change weapons
+at the proper times. It's great to let the game loops the levels and farm
+automatically.
+
+If you are confused by this and wonder where the script could be used, beat
+the boss Nagaraja first. Once you do, you'll get the Mind stone, which can
+be used to write the script (or to paste an existing one into it).
 
 
 
@@ -17,7 +30,7 @@ every level. In case the script does not behave properly, verify that you
 have a matching version of the game with the version indicated in the script.
 
 In case you want to do any modifications, the documentation for the
-scripting language is available on the [game
+scripting language _StoneScript_ is available on the [game
 website](http://stonestoryrpg.com/stonescript/help.txt)
 
 You are free to use the script as you wish as long as you include my name,
