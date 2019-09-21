@@ -1,21 +1,30 @@
-// Copyright © 2019, Matjaž Guštin <dev@matjaz.it> <https://matjaz.it>
+// Copyright © 2019, Matjaž Guštin
+// <dev@matjaz.it> <https://matjaz.it>
 // Released under the BSD 3-clause license.
 
-// Loadout 1: ranged, e.g. double crossbow
-// Loadout 2: single-handed melee with dashing shield
+// Loadout 1: ranged, e.g. repeating crossbow
+// Loadout 2: melee with dashing shield
 // Loadout 3: armor-crushing, e.g. 2x warhammer
-// Loadout 4: 2x single-handed melee close quarters
-//            e.g. dual-wielding swords         
+// Loadout 4: melee high-damage, e.g. 2x sword
 
-// Player's face
+// The Ouroboros stone is equipped when nothing
+// has to be done to get heal a little.
+// The Star stone is equipped to quickly pick
+// up materials (wood, stones, tar, bronze).
+
+// FOR GAME VERSION v1.8.6
+
+
+// --- Player's face, if head is big ---
 >( O_*
+
 
 
 // --- Rocky plateau ---
 ?loc = rocky
   equip shovel
   ?pickup = stone
-    equip star  // quick picking up
+    equip star
   // Dysangelos
   ?foe = dysangelos_bearer
     loadout 4
@@ -37,10 +46,10 @@
 // --- Deadwood Canyon ---
 ?loc = valley
   equipR hatchet
-  equipL ouroboros  // healing
+  equipL ouroboros
   ?pickup = wood
-    equipR star  // quick picking up
-    equipL ouroboros  // healing
+    equipR star
+    equipL ouroboros
   ?foe = mosquito
     loadout 1
   ?foe = scarab
@@ -57,8 +66,8 @@
 ?loc = caves
   equipL ouroboros
   ?pickup = tar
-    equipR star  // quick picking up
-    equipL ouroboros  // healing
+    equipR star
+    equipL ouroboros
   ?foe = bat
     loadout 1
   ?foe = spider
@@ -79,10 +88,10 @@
   // Angry shroom
   ?foe = boss
     equip poison staff
-  // xxx, the sporeadic
+  // Morel, the sporeadic
   ?foe = boss_fat
     loadout 4
-  // xxx, fungi to be with
+  // Enoki, fungi to be with
   ?foe = boss_skinny
     loadout 4
 
@@ -101,8 +110,8 @@
 ?loc = mine
   equipL ouroboros
   ?pickup = bronze
-    equipR star  // quick picking up
-    equipL ouroboros  // healing
+    equipR star
+    equipL ouroboros
   ?foe = master
     loadout 1
   ?foe = elemental
@@ -125,6 +134,7 @@
     loadout 3
   ?time > 1100
     loadout 1
+  // TODO longer times in higher difficulties
 
 
 
@@ -139,16 +149,16 @@
     equip fire staff
   ?foe.distance < 10
     equip fire staff
-  // Hrimnir
+  // HrÍmnir
   ?foe = yeti
-    ?foe.distance > 5
-      equip dashing shield
     ?foe.distance > 2
       // The shovel has an attack range of 1
       // so it forces the player to move very
       // very close. So close that it can avoid
       // the attacks (snowballs)
       equip shovel
+    ?foe.distance > 3
+      equip dashing shield
     ?foe.distance < 3
       loadout 4
 
