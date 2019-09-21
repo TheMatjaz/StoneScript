@@ -1,7 +1,9 @@
 StoneScript
 ===========
 
-My StoneScripts used in the ASCII-art game Stone Story RPG to automate it.
+My StoneScripts used in the ASCII-art game [Stone Story
+RPG](https://store.steampowered.com/app/603390/Stone_Story_RPG/)
+to automate it.
 
 The documentation for the scripting language is available on the [game
 website](http://stonestoryrpg.com/stonescript/help.txt)
