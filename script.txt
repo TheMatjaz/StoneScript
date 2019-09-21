@@ -7,14 +7,34 @@
 // Loadout 4: 2x single-handed melee close quarters
 //            e.g. dual-wielding swords         
 
-// Rocky plateau
+// Player's face
+>( O_*
+
+
+// --- Rocky plateau ---
 ?loc = rocky
   equip shovel
   ?pickup = stone
     equip star  // quick picking up
-  // TODO: boss
+  // Dysangelos
+  ?foe = dysangelos_bearer
+    loadout 4
+  ?foe = dysangelos_elementalist
+    loadout 4
+    // TODO use the proper runes against
+    // the current rune in the eye of the boss
+  ?foe = dysangelos_perfected
+    loadout 4
+    ?foe.armor > 0
+      loadout 3
+    ?hp < 31
+      // Dsyangleos' most powerful move deals
+      // 30 damage points on 5* difficulty
+      activate potion
+ 
+ 
 
-// Deadwood Canyon
+// --- Deadwood Canyon ---
 ?loc = valley
   equipR hatchet
   equipL ouroboros  // healing
@@ -27,12 +47,13 @@
     loadout 4
   ?foe.distance < 10
     loadout 4
-  ?foe = waypoint
-    > Approaching boss
-  ?foe = boss
+  // Xyaloalgia, residue of Leuce
+  ?foe = tree_boss
     loadout 4
 
-// Caves of Fear
+
+
+// --- Caves of Fear ---
 ?loc = caves
   equipL ouroboros
   ?pickup = tar
@@ -46,30 +67,37 @@
     loadout 1
   ?foe.distance < 10
     loadout 4
-  ?foe = waypoint
-    > Approaching boss
+  // Bolesh, the cunning
   ?foe = boss
     loadout 4
 
-// Mushroom forest
+
+
+// --- Mushroom forest ---
 ?loc = fungus
   equip poison staff
-  ?foe = waypoint
-    > Approaching boss
+  // Angry shroom
   ?foe = boss
     equip poison staff
+  // xxx, the sporeadic
   ?foe = boss_fat
     loadout 4
+  // xxx, fungi to be with
   ?foe = boss_skinny
     loadout 4
 
-// Haunted halls
+
+
+// --- Haunted halls ---
 ?loc = crypt
   equip vigor staff
-  ?foe = waypoint
-    > Approaching boss
+  // Pallas, the skinless
+  ?foe = boss
+    equip vigor staff
 
-// Boiling mine
+
+
+// --- Boiling mine ---
 ?loc = mine
   equipL ouroboros
   ?pickup = bronze
@@ -83,10 +111,8 @@
     loadout 2
     ?foe.distance < 10
       loadout 3
-  ?foe = waypoint
-    > Approaching boss
 
-// Boss chamber in the bronze mine
+// --- Bronze guardian ---
 ?loc = bronze_guardian
   equipL ouroboros
   ?time > 600
@@ -99,20 +125,21 @@
     loadout 3
   ?time > 1100
     loadout 1
-    
 
 
-// Icy ridge
+
+// --- Icy ridge ---
 ?loc = icy
   equipL ouroboros
   ?foe = elemental
-    loadout 1
+    equip fire staff
   ?foe = pillar
-    loadout 1
+    equip fire staff
   ?foe = ki
-    loadout 1
+    equip fire staff
   ?foe.distance < 10
-    loadout 4
+    equip fire staff
+  // Hrimnir
   ?foe = yeti
     ?foe.distance > 5
       equip dashing shield
@@ -125,15 +152,21 @@
     ?foe.distance < 3
       loadout 4
 
-// Temple
-?loc = temple
-  equip vigor staff  // TODO icy staff is better
 
-// Boss chamber in the temple
+
+// --- Temple ---
+?loc = temple
+  equip ice staff
+
+
+
+// --- Nagaraja ---
 ?loc = nagaraja
   loadout 4
 
-// General rules, applied after all others
+
+
+// --- General rules ---
 // Apply health potion on low health
 ?hp < 5
   activate potion
