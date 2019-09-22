@@ -15,8 +15,11 @@
 // FOR GAME VERSION v1.8.6
 
 
-// --- Player's face, if head is big ---
->( O_*
+
+// --- A simple tank because why not ---
+>o-2,0, ┌o┴╪══-
+>o-2,1,┌┴──┴─┐
+>o-2,2,`@…@…@´
 
 
 
