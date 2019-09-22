@@ -114,8 +114,12 @@
     equipL ouroboros
   ?foe = master
     loadout 1
+  ?foe = geyser
+    loadout 2
   ?foe = elemental
     loadout 1
+  ?foe.distance < 10
+    loadout 4
   ?foe = walker
     loadout 2
     ?foe.distance < 10
@@ -124,15 +128,34 @@
 // --- Bronze guardian ---
 ?loc = bronze_guardian
   equipL ouroboros
+  // Guardian is attackable
   ?time > 600
     loadout 1
+  // Guardian hits, we jump on its arm and dash
   ?time > 960 & time < 980
     loadout 2
+  // Hitting guardian's face
   ?time > 980
     loadout 4
-  ?time > 980 & foe.armor > 0
-    loadout 3
-  ?time > 1100
+    // Hitting guardian's face using armor
+    // piercing weapons, if the face is covered
+    ?foe.armor > 0
+      loadout 3
+  // Jumping back on the ground
+  ?time > 1150
+    loadout 1
+  // Guardian hits for the second time
+  ?time > 1600 & time < 1620
+    loadout 2
+  // Hitting guardian's face
+  ?time > 1620
+    loadout 4
+    // Hitting guardian's face using armor
+    // piercing weapons, if the face is covered
+    ?foe.armor > 0
+      loadout 3
+  // Jumping back on the ground
+  ?time > 1770
     loadout 1
   // TODO longer times in higher difficulties
 
