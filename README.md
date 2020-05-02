@@ -5,6 +5,10 @@ My StoneScript code used in the **amazing** ASCII-art game [Stone Story
 RPG](https://store.steampowered.com/app/603390/Stone_Story_RPG/)
 to automate it.
 
+> **NOTE:** this was written for Stone Story RPG v1.8.6 in September 2019. I
+> haven't played the game since. The script may be incompatible with newer
+> versions of the game.
+
 
 What is this?
 ----------------------------------------
