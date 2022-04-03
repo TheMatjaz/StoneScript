@@ -1,0 +1,35 @@
+/*
+Copyright © 2019-2022, Matjaž Guštin
+<dev@matjaz.it> <https://matjaz.it>
+Released under the BSD 3-clause license.
+
+Level: Rocky plateau
+*/
+
+?loc = rocky
+  equip shovel
+
+  // Boss: Dysangelos, phase 1 (base form)
+  ?foe = dysangelos_bearer
+    equipL sword
+    equipR shield
+
+  // Boss: Dysangelos, phase 2 (elemental form)
+  ?foe = dysangelos_elementalist
+    equipL sword
+    equipR shield
+    // TODO use the proper runes against
+    // the current rune in the eye of the boss
+
+  // Boss: Dysangels, phase 3 (perfect form)
+  ?foe = dysangelos_perfected
+    equipL sword
+    equipR shield
+    ?foe.armor > 0
+      loadout 3
+    // Their most powerful move deals 30 damage
+    // points on 5* difficulty, so we need to
+    // heal if we don't have enough health and
+    // armor combined
+    ?(hp + armor) < 31
+      activate potion

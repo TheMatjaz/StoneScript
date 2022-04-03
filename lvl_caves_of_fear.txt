@@ -1,0 +1,25 @@
+/*
+Copyright © 2019-2022, Matjaž Guštin
+<dev@matjaz.it> <https://matjaz.it>
+Released under the BSD 3-clause license.
+
+Level: Caves of fear
+*/
+
+?loc = caves
+  ?foe = bat
+    equip crossbow
+  ?foe = spider
+    equip crossbow
+  ?foe = eggs
+    equip crossbow
+
+  // In case the enemy gets too close
+  ?foe.distance < 10
+    equipL sword
+    equipR shield
+
+  // Boss: Bolesh, the cunning
+  ?foe = boss
+    equipL sword
+    equipR shield

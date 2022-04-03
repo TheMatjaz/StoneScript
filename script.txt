@@ -1,88 +1,26 @@
-// Copyright © 2019, Matjaž Guštin
-// <dev@matjaz.it> <https://matjaz.it>
-// Released under the BSD 3-clause license.
+/*
+Copyright © 2019-2022, Matjaž Guštin
+<dev@matjaz.it> <https://matjaz.it>
+Released under the BSD 3-clause license.
 
-// Loadout 1: ranged, e.g. repeating crossbow
-// Loadout 2: melee with dashing shield
-// Loadout 3: armor-crushing, e.g. 2x warhammer
-// Loadout 4: melee high-damage, e.g. 2x sword
+FOR GAME VERSION v3.13.5 as of 2022-04-03
 
-// The Ouroboros stone is equipped when nothing
-// has to be done to get heal a little.
-// The Star stone is equipped to quickly pick
-// up materials (wood, stones, tar, bronze).
+Keep lines at 48 characters at most, because
+that is the line length of the mind stone UI
+within the game.
 
-// FOR GAME VERSION v1.8.6
+Loadout 1: ranged, e.g. repeating crossbow
+Loadout 2: melee with dashing shield
+Loadout 3: armor-crushing, e.g. 2x warhammer
+Loadout 4: melee high-damage, e.g. 2x sword
+*/
 
+import fishing
 
-
-// --- A simple tank because why not ---
->o-2,0, ┌o┴╪══-
->o-2,1,┌┴──┴─┐
->o-2,2,`@…@…@´
-
-
-
-// --- Rocky plateau ---
-?loc = rocky
-  equip shovel
-  ?pickup = stone
-    equip star
-  // Dysangelos
-  ?foe = dysangelos_bearer
-    loadout 4
-  ?foe = dysangelos_elementalist
-    loadout 4
-    // TODO use the proper runes against
-    // the current rune in the eye of the boss
-  ?foe = dysangelos_perfected
-    loadout 4
-    ?foe.armor > 0
-      loadout 3
-    ?hp < 31
-      // Dsyangleos' most powerful move deals
-      // 30 damage points on 5* difficulty
-      activate potion
- 
- 
-
-// --- Deadwood Canyon ---
-?loc = valley
-  equipR hatchet
-  equipL ouroboros
-  ?pickup = wood
-    equipR star
-    equipL ouroboros
-  ?foe = mosquito
-    loadout 1
-  ?foe = scarab
-    loadout 4
-  ?foe.distance < 10
-    loadout 4
-  // Xyaloalgia, residue of Leuce
-  ?foe = tree_boss
-    loadout 4
-
-
-
-// --- Caves of Fear ---
-?loc = caves
-  equipL ouroboros
-  ?pickup = tar
-    equipR star
-    equipL ouroboros
-  ?foe = bat
-    loadout 1
-  ?foe = spider
-    loadout 1
-  ?foe = eggs
-    loadout 1
-  ?foe.distance < 10
-    loadout 4
-  // Bolesh, the cunning
-  ?foe = boss
-    loadout 4
-
+import my/general
+import my/lvl_rocky_plateau
+import my/lvl_deadwood_canyon
+import my/lvl_caves_of_fear
 
 
 // --- Mushroom forest ---
@@ -201,14 +139,3 @@
   loadout 4
 
 
-
-// --- General rules ---
-// Apply health potion on low health
-?hp < 5
-  activate potion
-
-// Equip Experience stone to kill a boss
-// and get double XP from the kill
-?foe = boss & foe.armor = 0 & foe.hp < 25
-  equipR sword
-  equipL experience

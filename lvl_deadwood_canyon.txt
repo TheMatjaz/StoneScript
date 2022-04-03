@@ -1,0 +1,24 @@
+/*
+Copyright © 2019-2022, Matjaž Guštin
+<dev@matjaz.it> <https://matjaz.it>
+Released under the BSD 3-clause license.
+
+Level: Deadwood canyon
+*/
+
+?loc = deadwood
+  // Cut down trees with the hatchet
+  ?harvest.distance < 10
+    equip hatchet
+
+  // Small enemies
+  ?foe = mosquito
+    equip crossbow
+  ?foe = scarab
+    equipL sword
+    equipR shield
+
+  // Boss: Xyaloalgia, residue of Leuce
+  ?foe = boss
+    equipL sword
+    equipR shield
