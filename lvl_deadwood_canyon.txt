@@ -6,19 +6,40 @@ Released under the BSD 3-clause license.
 Level: Deadwood canyon
 */
 
-?loc = deadwood
-  // Cut down trees with the hatchet
-  ?harvest.distance < 10
-    equip hatchet
+var loadouts = import my/loadouts
 
+// Apply health potion on low health.
+?hp < 5
+  activate potion
+
+// When far away from any enemy, equip Ouroboros
+// stone to heal a little between foes.
+?foe.distance > 8
+  equipL ouroboros
+
+?loc = deadwood
   // Small enemies
   ?foe = mosquito
-    equip crossbow
+    loadouts.crossbow_shield()
+
   ?foe = scarab
-    equipL sword
-    equipR shield
+    loadouts.sword_shield()
 
   // Boss: Xyaloalgia, residue of Leuce
   ?foe = boss
-    equipL sword
-    equipR shield
+     loadouts.sword_shield()
+    // About to kill the boss, equip Experience
+    // stone to get double XP points.
+    ?foe.hp < 25
+      loadouts.sword_xpstone()
+
+  // Cut down trees with the hatchet
+  ?harvest.distance < 10
+    equip hatchet
+    ?harvest.distance <= 4 &  // At the tree
+    ^item.GetCooldown("hatchet") <= 0
+      activate R
+
+  // Pick up wood quickly with Star stone
+  ?pickup.distance < 10
+    equipL star
