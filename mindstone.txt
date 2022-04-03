@@ -16,12 +16,9 @@ Loadout 4: melee high-damage, e.g. 2x sword
 */
 
 import fishing
-
-import my/general
 import my/lvl_rocky_plateau
 import my/lvl_deadwood_canyon
 import my/lvl_caves_of_fear
-
 
 // --- Mushroom forest ---
 ?loc = fungus
