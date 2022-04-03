@@ -22,6 +22,7 @@ If you are confused by this and wonder where the script could be used, beat
 the boss Nagaraja first. Once you do, you'll get the Mind stone, which can
 be used to write the script (or to paste an existing one into it).
 
+Hold TAB for debug information while playing a level.
 
 
 Usage
