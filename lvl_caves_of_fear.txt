@@ -6,20 +6,40 @@ Released under the BSD 3-clause license.
 Level: Caves of fear
 */
 
+var loadouts = import my/loadouts
+
+// Apply health potion on low health.
+?hp < 5
+  activate potion
+
+// When far away from any enemy, equip Ouroboros
+// stone to heal a little between foes.
+?foe.distance > 8
+  equipL ouroboros
+
 ?loc = caves
+  // Small enemies
   ?foe = bat
-    equip crossbow
+    loadouts.crossbow_shield()
   ?foe = spider
-    equip crossbow
+    loadouts.crossbow_shield()
   ?foe = eggs
-    equip crossbow
+    loadouts.crossbow_shield()
+  ?foe = scorpion
+    loadouts.crossbow_shield()
 
   // In case the enemy gets too close
   ?foe.distance < 10
-    equipL sword
-    equipR shield
+    loadouts.sword_shield()
 
   // Boss: Bolesh, the cunning
   ?foe = boss
-    equipL sword
-    equipR shield
+    loadouts.sword_shield()
+    // About to kill the boss, equip Experience
+    // stone to get double XP points.
+    ?foe.hp < 25
+      loadouts.sword_xpstone()
+
+  // Pick up tar quickly with Star stone
+  ?pickup.distance < 10
+    equipL star
