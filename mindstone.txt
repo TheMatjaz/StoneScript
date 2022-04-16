@@ -19,21 +19,7 @@ import fishing
 import my/lvl_rocky_plateau
 import my/lvl_deadwood_canyon
 import my/lvl_caves_of_fear
-
-// --- Mushroom forest ---
-?loc = fungus
-  equip poison staff
-  // Angry shroom
-  ?foe = boss
-    equip poison staff
-  // Morel, the sporeadic
-  ?foe = boss_fat
-    loadout 4
-  // Enoki, fungi to be with
-  ?foe = boss_skinny
-    loadout 4
-
-
+import my/lvl_mushroom_forest
 
 // --- Haunted halls ---
 ?loc = crypt

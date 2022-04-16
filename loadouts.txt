@@ -13,19 +13,19 @@ func star_ouroboros()
 
 func sword_shield()
   equipL sword *6
-  equipR shield *5
+  equipR shield stone *6
 
 func crossbow_shield()
   equipL crossbow *5
-  equipR shield *5
+  equipR shield stone *6
 
 func crossbow_ouroboros()
   equipL crossbow *5
   equipR ouroboros
 
 func shield_ouroboros()
-  equipR shield *5
   equipL ouroboros
+  equipR shield stone *6
 
 func warhammers()
   equipL warhammer *4
@@ -34,3 +34,6 @@ func warhammers()
 func sword_xpstone()
   equipR sword *6
   equipL experience
+
+func poison_staff()
+  equip staff poison *6

@@ -1,0 +1,27 @@
+/*
+Copyright © 2019-2022, Matjaž Guštin
+<dev@matjaz.it> <https://matjaz.it>
+Released under the BSD 3-clause license.
+
+Level: Mushroom Forest
+*/
+
+var loadouts = import my/loadouts
+
+// Apply health potion on low health.
+?hp < 5
+  activate potion
+
+?loc = fungus
+  loadouts.poison_staff()
+  
+  // Boss, all of them
+  ?foe = boss
+    // About to kill the boss, equip Experience
+    // stone to get double XP points.
+    ?foe.armor = 0 & foe.hp < 30
+      loadouts.sword_xpstone()
+
+  // Heal and gain armor while just walking
+  ?target = waypoint | foe.distance > 20
+    loadouts.shield_ouroboros()
