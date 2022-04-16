@@ -7,18 +7,30 @@ Sets of weapons abstracted away as nicely
 named functions.
 */
 
+func star_ouroboros()
+  equipL star
+  equipR ouroboros
+
 func sword_shield()
   equipL sword *6
   equipR shield *5
-  
+
 func crossbow_shield()
   equipL crossbow *5
   equipR shield *5
 
+func crossbow_ouroboros()
+  equipL crossbow *5
+  equipR ouroboros
+
+func shield_ouroboros()
+  equipR shield *5
+  equipL ouroboros
+
 func warhammers()
   equipL warhammer *4
   equipR warhammer *4 poison
-  
+
 func sword_xpstone()
   equipR sword *6
   equipL experience

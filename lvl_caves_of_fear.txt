@@ -12,21 +12,16 @@ var loadouts = import my/loadouts
 ?hp < 5
   activate potion
 
-// When far away from any enemy, equip Ouroboros
-// stone to heal a little between foes.
-?foe.distance > 8
-  equipL ouroboros
-
 ?loc = caves
   // Small enemies
   ?foe = bat
-    loadouts.crossbow_shield()
+    loadouts.crossbow_ouroboros()
   ?foe = spider
-    loadouts.crossbow_shield()
+    loadouts.crossbow_ouroboros()
   ?foe = eggs
-    loadouts.crossbow_shield()
+    loadouts.crossbow_ouroboros()
   ?foe = scorpion
-    loadouts.crossbow_shield()
+    loadouts.crossbow_ouroboros()
 
   // In case the enemy gets too close
   ?foe.distance < 10
@@ -37,9 +32,12 @@ var loadouts = import my/loadouts
     loadouts.sword_shield()
     // About to kill the boss, equip Experience
     // stone to get double XP points.
-    ?foe.hp < 25
+    ?foe.hp < 100
       loadouts.sword_xpstone()
 
   // Pick up tar quickly with Star stone
   ?pickup.distance < 10
-    equipL star
+    loadouts.star_ouroboros()
+
+  ?target = waypoint
+    loadouts.shield_ouroboros()
