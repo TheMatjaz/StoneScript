@@ -1,0 +1,54 @@
+/*
+Copyright © 2019-2022, Matjaž Guštin
+<dev@matjaz.it> <https://matjaz.it>
+Released under the BSD 3-clause license.
+
+Level: Boiling Mine
+*/
+
+var loadouts = import my/loadouts
+
+// Apply health potion on low health.
+?hp < 5
+  activate potion
+
+?loc = mine
+  // Heal and gain armor while just walking
+  ?target = waypoint | foe.distance > 20
+    loadouts.shield_ouroboros()
+
+  // Pick up tar quickly with Star stone
+  ?pickup.distance < 10
+    loadouts.star_ouroboros()
+
+  // Small enemies
+  ?foe = master | foe = elemental
+    ?foe.distance < 10
+      loadouts.sword_shield()
+    :
+      loadouts.crossbow_shield()
+  :?foe = geyser
+    loadouts.sword_shield()
+  :?foe = walker
+    ?foe.distance > 10
+      loadouts.dashing()
+    :?foe.armor > 0
+      loadouts.armor_piercing()
+    :
+      loadouts.sword_shield()
+
+
+?loc = bronze_guardian
+  loadouts.shield_ouroboros()
+  // Guardian is attackable from afar
+  ?time > 600 & foe.distance > 10
+    loadouts.crossbow_shield()
+  // Guardian hits, we jump on its arm and dash
+  ?pos.y > 0 & foe.distance > 5
+    loadouts.dashing()
+  // Hitting guardian's face
+  :?foe.distance <= 5
+    ?foe.armor > 0
+      loadouts.armor_piercing()
+    :
+      loadouts.dps()

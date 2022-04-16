@@ -13,32 +13,26 @@ var loadouts = import my/loadouts
   activate potion
 
 ?loc = caves
-  // Small enemies
-  ?foe = bat
-    loadouts.crossbow_ouroboros()
-  ?foe = spider
-    loadouts.crossbow_ouroboros()
-  ?foe = eggs
-    loadouts.crossbow_ouroboros()
-  ?foe = scorpion
-    loadouts.crossbow_ouroboros()
-
-  // In case the enemy gets too close
-  ?foe.distance < 10
-    loadouts.sword_shield()
-
-  // Boss: Bolesh, the cunning
-  ?foe = boss
-    loadouts.sword_shield()
-    // About to kill the boss, equip Experience
-    // stone to get double XP points.
-    ?foe.armor = 0 & foe.hp < 50
-      loadouts.sword_xpstone()
+  // Heal and gain armor while just walking
+  ?target = waypoint | foe.distance > 20
+    loadouts.shield_ouroboros()
 
   // Pick up tar quickly with Star stone
   ?pickup.distance < 10
     loadouts.star_ouroboros()
 
-  // Heal and gain armor while just walking
-  ?target = waypoint | foe.distance > 20
-    loadouts.shield_ouroboros()
+  // Small enemies
+  ?foe = bat | foe = spider | foe = eggs
+  ^ foe = scorpion
+    loadouts.crossbow_ouroboros()
+    // In case the enemy gets too close 
+    ?foe.distance < 10
+      loadouts.sword_shield()
+
+  // Boss: Bolesh, the cunning
+  ?foe = boss
+    loadouts.megasword()
+    // About to kill the boss, equip Experience
+    // stone to get double XP points.
+    ?foe.armor = 0 & foe.hp < 51
+      loadouts.sword_xpstone()

@@ -20,6 +20,7 @@ import my/lvl_rocky_plateau
 import my/lvl_deadwood_canyon
 import my/lvl_caves_of_fear
 import my/lvl_mushroom_forest
+import my/lvl_boiling_mine
 
 // --- Haunted halls ---
 ?loc = crypt
