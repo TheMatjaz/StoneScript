@@ -12,11 +12,6 @@ var loadouts = import my/loadouts
 ?hp < 5
   activate potion
 
-// When far away from any enemy, equip Ouroboros
-// stone to heal a little between foes.
-?foe.distance > 8
-  equipL ouroboros
-
 ?loc = deadwood
   // Small enemies
   ?foe = mosquito
@@ -43,3 +38,7 @@ var loadouts = import my/loadouts
   // Pick up wood quickly with Star stone
   ?pickup.distance < 10
     equipL star
+
+  // Heal and gain armor while just walking
+  ?target = waypoint | foe.distance > 20
+    loadouts.shield_ouroboros()

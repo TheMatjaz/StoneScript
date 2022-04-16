@@ -39,5 +39,6 @@ var loadouts = import my/loadouts
   ?pickup.distance < 10
     loadouts.star_ouroboros()
 
-  ?target = waypoint
+  // Heal and gain armor while just walking
+  ?target = waypoint | foe.distance > 20
     loadouts.shield_ouroboros()
