@@ -30,7 +30,7 @@ var loadouts = import my/loadouts
      loadouts.sword_shield()
     // About to kill the boss, equip Experience
     // stone to get double XP points.
-    ?foe.hp < 25
+    ?foe.armor = 0 & foe.hp < 25
       loadouts.sword_xpstone()
 
   // Cut down trees with the hatchet

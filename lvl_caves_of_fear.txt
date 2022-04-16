@@ -32,7 +32,7 @@ var loadouts = import my/loadouts
     loadouts.sword_shield()
     // About to kill the boss, equip Experience
     // stone to get double XP points.
-    ?foe.hp < 100
+    ?foe.armor = 0 & foe.hp < 50
       loadouts.sword_xpstone()
 
   // Pick up tar quickly with Star stone
