@@ -7,42 +7,44 @@ Sets of weapons abstracted away as nicely
 named functions.
 */
 
-
-
 func star_ouroboros()
   equipL star
   equipR ouroboros
 
 func sword_shield()
-  equipL sword *8
-  equipR shield stone *6
+  equipL sword *9
+  equipR shield *9
 
 func crossbow_shield()
-  equipL crossbow *7
-  equipR shield stone *6
+  equipL crossbow *8
+  equipR shield *9
 
 func crossbow_ouroboros()
-  equipL crossbow *7
+  equipL crossbow *8
   equipR ouroboros
+
+func crossbow_speed()
+  equipL crossbow *8
+  equipR triskelion
 
 func shield_ouroboros()
   equipL ouroboros
-  equipR shield stone *6
+  equipR shield *8
 
 func warhammers()
   equipL warhammer *4
   equipR warhammer *4 poison
 
 func sword_xpstone()
-  equipR sword *8
+  equipR sword *9
   equipL experience
 
 func dashing()
-  equipL sword *8
+  equipL sword *9
   equipR dash
 
 func poison_staff()
-  equip staff poison *6
+  equip staff poison *9
 
 func megasword()
   equip blade_of_god
@@ -53,3 +55,11 @@ func dps()
 func armor_piercing()
   equipR warhammer *4
   equipL sword *8
+
+func vigor_staff()
+  equip staff vigor *5
+
+func speed_shield()
+  equipL triskelion
+  equipR shield *9
+

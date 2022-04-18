@@ -9,30 +9,38 @@ Level: Caves of fear
 var loadouts = import my/loadouts
 
 // Apply health potion on low health.
-?hp < 5
+?hp < 10
   activate potion
 
 ?loc = caves
   // Heal and gain armor while just walking
   ?target = waypoint | foe.distance > 20
-    loadouts.shield_ouroboros()
+    ?hp = maxhp
+      loadouts.speed_shield()
+    :
+      loadouts.shield_ouroboros()
 
   // Pick up tar quickly with Star stone
-  ?pickup.distance < 10
+  ?pickup.distance < 6
     loadouts.star_ouroboros()
 
   // Small enemies
   ?foe = bat | foe = spider | foe = eggs
   ^ foe = scorpion
-    loadouts.crossbow_ouroboros()
+    ?hp = maxhp
+      loadouts.crossbow_speed()
+    :
+      loadouts.crossbow_ouroboros()
     // In case the enemy gets too close 
     ?foe.distance < 10
       loadouts.sword_shield()
 
   // Boss: Bolesh, the cunning
   ?foe = boss
-    loadouts.megasword()
-    // About to kill the boss, equip Experience
-    // stone to get double XP points.
-    ?foe.armor = 0 & foe.hp < 51
-      loadouts.sword_xpstone()
+    ?foe.distance > 10
+      loadouts.dashing()
+    :?foe.armor > 0
+      loadouts.armor_piercing()
+    :
+      equipL sword *9
+      equipR crossbow *8
