@@ -1,0 +1,24 @@
+/*
+Copyright © 2019-2022, Matjaž Guštin
+<dev@matjaz.it> <https://matjaz.it>
+Released under the BSD 3-clause license.
+
+Level: Haunted Halls
+*/
+
+var loadouts = import my/loadouts
+
+// Apply health potion on low health.
+?hp < 10
+  activate potion
+
+?loc = crypt
+  // Small enemies and boss
+  loadouts.vigor_staff()
+
+  // Heal and gain armor while just walking
+  ?target = waypoint | foe.distance > 20
+    loadouts.shield_ouroboros()
+
+// Pallas the skinless
+// first attack at time=650, second at 900

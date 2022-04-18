@@ -16,12 +16,10 @@ var loadouts = import my/loadouts
   // Small enemies
   ?foe = mosquito
     loadouts.crossbow_shield()
-
-  ?foe = scarab
+  :?foe = scarab
     loadouts.sword_shield()
-
   // Boss: Xyaloalgia, residue of Leuce
-  ?foe = boss
+  :?foe = boss
      loadouts.sword_shield()
     // About to kill the boss, equip Experience
     // stone to get double XP points.
