@@ -24,7 +24,7 @@ var loadouts = import my/loadouts
   // Small enemies
   ?foe = master | foe = elemental
     ?foe.distance < 10
-      loadouts.sword_shield()
+      loadouts.aether_sword_shield()
     :
       loadouts.crossbow_shield()
   :?foe = geyser
@@ -35,7 +35,7 @@ var loadouts = import my/loadouts
     :?foe.armor > 0
       loadouts.armor_piercing()
     :
-      loadouts.sword_shield()
+      loadouts.aether_sword_shield()
 
 
 ?loc = bronze_guardian
