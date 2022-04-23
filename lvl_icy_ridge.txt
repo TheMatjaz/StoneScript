@@ -1,0 +1,57 @@
+/*
+Copyright © 2019-2022, Matjaž Guštin
+<dev@matjaz.it> <https://matjaz.it>
+Released under the BSD 3-clause license.
+
+Level: Icy Ridge
+*/
+
+var loadouts = import my/loadouts
+
+// Apply health potion on low health.
+?hp < 5
+  activate potion
+  
+var hrminir_encountered = false
+  
+// --- Icy ridge ---
+?loc = icy_ridge
+  // Heal and gain armor while just walking
+  ?target = waypoint | foe.distance > 20
+    loadouts.shield_ouroboros()
+
+  // Small enemies
+  ?foe = elemental
+    ?foe.distance < 10
+      loadouts.fire_staff()
+    :
+      loadouts.dashing()
+  :?foe = ki
+    loadouts.fire_staff()
+  :?foe = pillar | foe = ice_wall
+    ?foe.distance <= 5
+      loadouts.megasword()
+      ?hrminir_encountered &
+      ^ item.GetCooldown("blade_of_god") <= 0
+        // Hit the wall harder and the boss
+        // behind it as well. Don't use it
+        // before the boss to avoid waiting
+        // for the cooldown.
+        activate R
+    :
+      loadouts.dashing()
+
+  // Hrímnir
+  :?foe = boss
+    hrminir_encountered = true
+    ?foe.distance <= 2
+      loadouts.megasword()
+    :?foe.distance <= 5
+      // The shovel has an attack range of 1
+      // so it forces the player to move very
+      // very close. So close that it can avoid
+      // the attacks (snowballs)
+      equip shovel
+    ?foe.distance > 5
+      loadouts.dashing()
+

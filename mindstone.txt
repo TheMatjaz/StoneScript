@@ -20,34 +20,9 @@ import my/lvl_rocky_plateau
 import my/lvl_deadwood_canyon
 import my/lvl_caves_of_fear
 import my/lvl_mushroom_forest
-import my/lvl_boiling_mine
 import my/lvl_haunted_halls
-
-
-// --- Icy ridge ---
-?loc = icy
-  equipL ouroboros
-  ?foe = elemental
-    equip fire staff
-  ?foe = pillar
-    equip fire staff
-  ?foe = ki
-    equip fire staff
-  ?foe.distance < 10
-    equip fire staff
-  // Hrímnir
-  ?foe = yeti
-    ?foe.distance > 2
-      // The shovel has an attack range of 1
-      // so it forces the player to move very
-      // very close. So close that it can avoid
-      // the attacks (snowballs)
-      equip shovel
-    ?foe.distance > 3
-      equip dashing shield
-    ?foe.distance < 3
-      loadout 4
-
+import my/lvl_boiling_mine
+import my/lvl_icy_ridge
 
 
 // --- Temple ---
