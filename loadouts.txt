@@ -12,39 +12,39 @@ func star_ouroboros()
   equipR ouroboros
 
 func sword_shield()
-  equipL sword *9
-  equipR shield *9
+  equipL sword *10
+  equipR shield *10
 
 func crossbow_shield()
-  equipL crossbow *8
-  equipR shield *9
+  equipL crossbow *10
+  equipR shield *10
 
 func crossbow_ouroboros()
-  equipL crossbow *8
+  equipL crossbow *10
   equipR ouroboros
 
 func crossbow_speed()
-  equipL crossbow *8
+  equipL crossbow *10
   equipR triskelion
 
 func shield_ouroboros()
   equipL ouroboros
-  equipR shield *8
+  equipR shield *10
 
 func warhammers()
   equipL warhammer *4
   equipR warhammer *4 poison
 
 func sword_xpstone()
-  equipR sword *9
+  equipR sword *10
   equipL experience
 
 func dashing()
-  equipL sword *9
-  equipR dash
+  equipL sword *10
+  equipR dash *8
 
 func poison_staff()
-  equip staff poison *9
+  equip staff poison *10
 
 func megasword()
   equip blade_of_god
@@ -53,13 +53,23 @@ func dps()
   equip blade_of_god
   
 func armor_piercing()
-  equipR warhammer *4
-  equipL sword *8
+  equipR warhammer *8
+  equipL sword *10
 
 func vigor_staff()
-  equip staff vigor *5
+  equip staff vigor *7
 
 func speed_shield()
   equipL triskelion
-  equipR shield *9
+  equipR shield *10
+
+func aether_sword_shield()
+  equipL sword *7 aether
+  equipR shield *10
+
+func shovel()
+  equip shovel
+  
+func fire_staff()
+  equip staff fire *7
 
