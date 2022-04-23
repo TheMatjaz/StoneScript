@@ -6,8 +6,15 @@ Released under the BSD 3-clause license.
 Level: Rocky plateau
 */
 
+var loadouts = import my/loadouts
+
 ?loc = rocky
   equip shovel
+  loadouts.healwalk()
+  
+  // Pick up stones quickly with Star stone
+  ?pickup.distance < 6
+    loadouts.star_ouroboros()
 
   // Boss: Dysangelos, phase 1 (base form)
   ?foe = dysangelos_bearer

@@ -13,13 +13,9 @@ var loadouts = import my/loadouts
   activate potion
 
 ?loc = fungus_forest
+  loadouts.poison_staff()
+  loadouts.healwalk()
 
-  // Heal and gain armor while just walking
-  ?target = waypoint |
-  ^ foe.distance > 20  // range of staff
-    loadouts.shield_ouroboros()
-  :
-    loadouts.poison_staff()
 
 ?loc = fungus_forest_boss
   // Boss, all of them
@@ -30,3 +26,4 @@ var loadouts = import my/loadouts
       loadouts.armor_piercing()
   :
     loadouts.poison_staff()
+  loadouts.healwalk()

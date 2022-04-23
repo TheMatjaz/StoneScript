@@ -13,10 +13,6 @@ var loadouts = import my/loadouts
   activate potion
 
 ?loc = mine
-  // Heal and gain armor while just walking
-  ?target = waypoint | foe.distance > 20
-    loadouts.shield_ouroboros()
-
   // Pick up tar quickly with Star stone
   ?pickup.distance < 10
     loadouts.star_ouroboros()
@@ -37,6 +33,7 @@ var loadouts = import my/loadouts
     :
       loadouts.aether_sword_shield()
 
+  loadouts.healwalk()
 
 ?loc = bronze_guardian
   loadouts.shield_ouroboros()
@@ -52,3 +49,5 @@ var loadouts = import my/loadouts
       loadouts.armor_piercing()
     :
       loadouts.dps()
+
+  loadouts.healwalk()

@@ -29,10 +29,6 @@ import my/lvl_icy_ridge
 ?loc = temple
   equip ice staff
 
-
-
 // --- Nagaraja ---
 ?loc = nagaraja
   loadout 4
-
-

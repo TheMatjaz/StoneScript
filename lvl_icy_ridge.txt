@@ -16,10 +16,6 @@ var hrminir_encountered = false
   
 // --- Icy ridge ---
 ?loc = icy_ridge
-  // Heal and gain armor while just walking
-  ?target = waypoint | foe.distance > 20
-    loadouts.shield_ouroboros()
-
   // Small enemies
   ?foe = elemental
     ?foe.distance < 10
@@ -54,4 +50,6 @@ var hrminir_encountered = false
       equip shovel
     ?foe.distance > 5
       loadouts.dashing()
+
+  loadouts.healwalk()
 

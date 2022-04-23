@@ -16,9 +16,7 @@ var loadouts = import my/loadouts
   // Small enemies and boss
   loadouts.vigor_staff()
 
-  // Heal and gain armor while just walking
-  ?target = waypoint | foe.distance > 20
-    loadouts.shield_ouroboros()
+  loadouts.healwalk()
 
 // Pallas the skinless
 // first attack at time=650, second at 900

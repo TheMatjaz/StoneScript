@@ -57,7 +57,7 @@ func armor_piercing()
   equipL sword *10
 
 func vigor_staff()
-  equip staff vigor *7
+  equip staff vigor *8
 
 func speed_shield()
   equipL triskelion
@@ -73,3 +73,12 @@ func shovel()
 func fire_staff()
   equip staff fire *7
 
+func healwalk()
+  // Heal and gain armor while just walking
+  // towards next objective. If 100% healed,
+  // walk faster.
+  ?target = waypoint | foe.distance > 20
+    ?hp < maxhp
+      shield_ouroboros()
+    :
+      speed_shield()

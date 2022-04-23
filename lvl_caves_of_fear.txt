@@ -13,13 +13,6 @@ var loadouts = import my/loadouts
   activate potion
 
 ?loc = caves
-  // Heal and gain armor while just walking
-  ?target = waypoint | foe.distance > 20
-    ?hp = maxhp
-      loadouts.speed_shield()
-    :
-      loadouts.shield_ouroboros()
-
   // Pick up tar quickly with Star stone
   ?pickup.distance < 6
     loadouts.star_ouroboros()
@@ -44,3 +37,5 @@ var loadouts = import my/loadouts
     :
       equipL sword *9
       equipR crossbow *8
+
+  loadouts.healwalk()
