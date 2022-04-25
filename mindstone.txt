@@ -3,16 +3,11 @@ Copyright © 2019-2022, Matjaž Guštin
 <dev@matjaz.it> <https://matjaz.it>
 Released under the BSD 3-clause license.
 
-FOR GAME VERSION v3.13.5 as of 2022-04-03
+FOR GAME VERSION v3.14.2 as of 2022-04-25
 
 Keep lines at 48 characters at most, because
 that is the line length of the mind stone UI
 within the game.
-
-Loadout 1: ranged, e.g. repeating crossbow
-Loadout 2: melee with dashing shield
-Loadout 3: armor-crushing, e.g. 2x warhammer
-Loadout 4: melee high-damage, e.g. 2x sword
 */
 
 import fishing
@@ -23,12 +18,3 @@ import my/lvl_mushroom_forest
 import my/lvl_haunted_halls
 import my/lvl_boiling_mine
 import my/lvl_icy_ridge
-
-
-// --- Temple ---
-?loc = temple
-  equip ice staff
-
-// --- Nagaraja ---
-?loc = nagaraja
-  loadout 4
