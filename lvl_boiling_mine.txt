@@ -13,10 +13,6 @@ var loadouts = import my/loadouts
   activate potion
 
 ?loc = mine
-  // Pick up tar quickly with Star stone
-  ?pickup.distance < 10
-    loadouts.star_ouroboros()
-
   // Small enemies
   ?foe = master | foe = elemental
     ?foe.distance < 10
@@ -24,7 +20,7 @@ var loadouts = import my/loadouts
     :
       loadouts.crossbow_shield()
   :?foe = geyser
-    loadouts.sword_shield()
+    loadouts.aether_sword_shield()
   :?foe = walker
     ?foe.distance > 10
       loadouts.dashing()

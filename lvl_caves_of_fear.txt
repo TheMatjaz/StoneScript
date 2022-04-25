@@ -13,10 +13,6 @@ var loadouts = import my/loadouts
   activate potion
 
 ?loc = caves
-  // Pick up tar quickly with Star stone
-  ?pickup.distance < 6
-    loadouts.star_ouroboros()
-
   // Small enemies
   ?foe = bat | foe = spider | foe = eggs
   ^ foe = scorpion

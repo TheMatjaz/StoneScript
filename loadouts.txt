@@ -74,11 +74,17 @@ func fire_staff()
   equip staff fire *7
 
 func healwalk()
+  // Pick up materials quickly with Star stone
+  ?pickup.distance < 10
+      equipL star
+      equipR shield *10
   // Heal and gain armor while just walking
   // towards next objective. If 100% healed,
   // walk faster.
-  ?target = waypoint | foe.distance > 20
+  :?target = waypoint | foe.distance > 20
     ?hp < maxhp
-      shield_ouroboros()
+      equipL ouroboros
+      equipR shield *10
     :
-      speed_shield()
+      equipL triskelion
+      equipR shield *10

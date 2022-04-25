@@ -33,8 +33,4 @@ var loadouts = import my/loadouts
     ^item.GetCooldown("hatchet") <= 0
       activate R
 
-  // Pick up wood quickly with Star stone
-  ?pickup.distance < 10
-    equipL star
-
   loadouts.healwalk()
