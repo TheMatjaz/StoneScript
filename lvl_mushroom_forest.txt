@@ -8,22 +8,45 @@ Level: Mushroom Forest
 
 var loadouts = import my/loadouts
 
-// Apply health potion on low health.
-?hp < 8
-  activate potion
+func equip_melee()
+  equipL sword *10 +7
+  equipR shield *10 poison
+
+func equip_warhammers()
+  equipL warhammer *10 poison +5
+  equipR warhammer *10 +8
+
+func equip_dashing()
+  equipL sword *10
+  equipR shield *10 dashing
+
+func equip_staff()
+  equip staff *10 poison
+
+func equip_ranged_healing()
+  equipL crossbow *10
+  equipR ouroboros
 
 ?loc = fungus_forest
-  loadouts.poison_staff()
+  ?hp = maxhp | foe.distance <= 23
+    equip_staff()
+  :
+    equip_ranged_healing()
+  ?hp <= 10
+    activate potion
   loadouts.healwalk()
 
-
-?loc = fungus_forest_boss
-  // Boss, all of them
-  ?foe.armor > 0
-    ?foe.distance > 5
-      loadouts.dashing()
+?loc = fungus_forest_boss  // Boss room
+  ?foe = mushroom_boss_skinny  // Enoki
+    equip_staff()
+  :?foe = mushroom_boss // Angry or Morel
+    ?foe.distance >= 6
+      // Morel's hand keeps you at distance 5
+      equip_dashing()
+    :?foe.armor > 0
+      equip_warhammers()
     :
-      loadouts.armor_piercing()
-  :
-    loadouts.poison_staff()
+      equip_melee()
+  ?hp <= 10
+    activate potion
   loadouts.healwalk()

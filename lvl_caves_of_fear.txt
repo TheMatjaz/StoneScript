@@ -8,30 +8,33 @@ Level: Caves of fear
 
 var loadouts = import my/loadouts
 
-// Apply health potion on low health.
-?hp < 10
-  activate potion
+func equip_melee()
+  equipL sword *10
+  equipR shield *10 fire
+
+func equip_dashing()
+  equipL sword *10
+  equipR shield *10 dashing
+
+func equip_staff()
+  equip staff *8 ice
+
+func equip_ranged_healing()
+  equipL crossbow *10
+  equipR ouroboros
 
 ?loc = caves
-  // Small enemies
-  ?foe = bat | foe = spider | foe = eggs
-  ^ foe = scorpion
+  ?foe ! boss  // Small enemies
     ?hp = maxhp
-      loadouts.crossbow_speed()
+      equip_staff()
     :
-      loadouts.crossbow_ouroboros()
-    // In case the enemy gets too close 
-    ?foe.distance < 10
-      loadouts.sword_shield()
-
-  // Boss: Bolesh, the cunning
-  ?foe = boss
+      equip_ranged_healing()
+  :?foe = boss  // Bolesh, the cunning
     ?foe.distance > 10
-      loadouts.dashing()
-    :?foe.armor > 0
-      loadouts.armor_piercing()
+      equip_dashing()
     :
-      equipL sword *9
-      equipR crossbow *8
+      equip_melee()
+  :?hp < 10
+    activate potion
 
   loadouts.healwalk()

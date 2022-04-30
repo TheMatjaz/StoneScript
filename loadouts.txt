@@ -32,8 +32,8 @@ func shield_ouroboros()
   equipR shield *10
 
 func warhammers()
-  equipL warhammer *4
-  equipR warhammer *4 poison
+  equipL warhammer *8
+  equipR warhammer *8 poison
 
 func sword_xpstone()
   equipR sword *10
@@ -53,7 +53,7 @@ func dps()
   equip blade_of_god
   
 func armor_piercing()
-  equipR warhammer *8
+  equipR warhammer *9
   equipL sword *10
 
 func vigor_staff()
@@ -64,14 +64,14 @@ func speed_shield()
   equipR shield *10
 
 func aether_sword_shield()
-  equipL sword *7 aether
-  equipR shield *10
+  equipL sword *8 aether
+  equipR shield *10 aether
 
 func shovel()
   equip shovel
   
 func fire_staff()
-  equip staff fire *7
+  equip staff fire *10
 
 func healwalk()
   // Pick up materials quickly with Star stone
@@ -81,7 +81,7 @@ func healwalk()
   // Heal and gain armor while just walking
   // towards next objective. If 100% healed,
   // walk faster.
-  :?target = waypoint | foe.distance > 20
+  :?target = waypoint | foe.distance > 22
     ?hp < maxhp
       equipL ouroboros
       equipR shield *10
