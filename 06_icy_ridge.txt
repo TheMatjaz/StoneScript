@@ -8,6 +8,7 @@ Level: Icy Ridge
 
 var loadouts = import my/loadouts
 
+
 // Apply health potion on low health.
 ?hp < 5
   activate potion
@@ -41,7 +42,7 @@ var hrminir_encountered = false
   :?foe = boss
     hrminir_encountered = true
     ?foe.distance <= 2
-      loadouts.megasword()
+      loadouts.fire_staff()
     :?foe.distance <= 5
       // The shovel has an attack range of 1
       // so it forces the player to move very
