@@ -8,15 +8,18 @@ Level: Haunted Halls
 
 var loadouts = import my/loadouts
 
-// Apply health potion on low health.
-?hp < 10
-  activate potion
+func equip_melee()
+  equipL sword *10 +7
+  equipR shield *10 vigor
 
-?loc = crypt
-  // Small enemies and boss
-  loadouts.vigor_staff()
+func equip_staff()
+  equip staff *8 vigor
 
+?loc = undead_crypt_boss | loc = undead_crypt
+  // Small enemies and boss: same strategy
+  // just keep on using the vigor staff
+  // and heal while walking between enemies
+  equip_staff()
+  ?hp < 10
+    activate potion
   loadouts.healwalk()
-
-// Pallas the skinless
-// first attack at time=650, second at 900

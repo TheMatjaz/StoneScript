@@ -12,7 +12,7 @@ func equip_melee()
   equipL sword *10 +7
   equipR shield *10 poison
 
-func equip_warhammers()
+func equip_armor_piercing()
   equipL warhammer *10 poison +5
   equipR warhammer *10 +8
 
@@ -29,8 +29,10 @@ func equip_ranged_healing()
 
 ?loc = fungus_forest
   ?hp = maxhp | foe.distance <= 23
+    // Healed completely or enemy too close
     equip_staff()
   :
+    // Try to heal while attacking from afar
     equip_ranged_healing()
   ?hp <= 10
     activate potion
@@ -44,7 +46,7 @@ func equip_ranged_healing()
       // Morel's hand keeps you at distance 5
       equip_dashing()
     :?foe.armor > 0
-      equip_warhammers()
+      equip_armor_piercing()
     :
       equip_melee()
   ?hp <= 10

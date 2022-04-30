@@ -25,9 +25,11 @@ func equip_ranged_healing()
 
 ?loc = caves
   ?foe ! boss  // Small enemies
-    ?hp = maxhp
+    ?hp = maxhp | foe.distance <= 23
+      // Healed completely or enemy too close
       equip_staff()
     :
+      // Try to heal while attacking from afar
       equip_ranged_healing()
   :?foe = boss  // Bolesh, the cunning
     ?foe.distance > 10
