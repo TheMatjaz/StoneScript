@@ -8,42 +8,59 @@ Level: Boiling Mine
 
 var loadouts = import my/loadouts
 
-// Apply health potion on low health.
-?hp < 5
-  activate potion
+func equip_melee()
+  equipL sword *9 aether
+  equipR shield *10 aether +3
+
+func equip_dps()
+  equipL sword *9 aether
+  equipR sword *10
+
+func equip_dashing()
+  equipL sword *9 aether
+  equipR shield *10 dashing
+
+func equip_ranged_healing()
+  equipL crossbow *10
+  equipR ouroboros
+  
+func equip_ranged_shield()
+  equipL crossbow *10
+  equipR shield *10 aether +3
+
+func equip_armor_piercing()
+  equipL warhammer *10 poison +5
+  equipR warhammer *10 +8
 
 ?loc = mine
   // Small enemies
-  ?foe = master | foe = elemental
-    ?foe.distance < 10
-      loadouts.aether_sword_shield()
-    :
-      loadouts.crossbow_shield()
-  :?foe = geyser
-    loadouts.aether_sword_shield()
-  :?foe = walker
-    ?foe.distance > 10
-      loadouts.dashing()
+  ?foe = master
+  ^ | foe = elemental
+  ^ | foe = geyser
+  ^ | foe = walker
+    ?foe.distance > 8
+      equip_dashing()
     :?foe.armor > 0
-      loadouts.armor_piercing()
+      equip_armor_piercing()
     :
-      loadouts.aether_sword_shield()
-
+      equip_melee()
+  :?hp < 10
+    activate potion
   loadouts.healwalk()
 
 ?loc = bronze_guardian
-  loadouts.shield_ouroboros()
-  // Guardian is attackable from afar
   ?time > 600 & foe.distance > 10
-    loadouts.crossbow_shield()
-  // Guardian hits, we jump on its arm and dash
+    // Guardian is now attackable from afar
+    equip_ranged_shield()
   ?pos.y > 0 & foe.distance > 5
-    loadouts.dashing()
-  // Hitting guardian's face
+    // Guardian hits, we jump on its hand
+    equip_dashing()
   :?foe.distance <= 5
+    // We are on its arm, close to its face
     ?foe.armor > 0
-      loadouts.armor_piercing()
+      equip_armor_piercing()
     :
-      loadouts.dps()
-
+      equip_dps()
+  :?hp < 10
+    activate potion
   loadouts.healwalk()
