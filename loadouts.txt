@@ -7,77 +7,13 @@ Sets of weapons abstracted away as nicely
 named functions.
 */
 
-func star_ouroboros()
-  equipL star
-  equipR ouroboros
-
-func sword_shield()
-  equipL sword *10
-  equipR shield *10
-
-func crossbow_shield()
-  equipL crossbow *10
-  equipR shield *10
-
-func crossbow_ouroboros()
-  equipL crossbow *10
-  equipR ouroboros
-
-func crossbow_speed()
-  equipL crossbow *10
-  equipR triskelion
-
-func shield_ouroboros()
-  equipL ouroboros
-  equipR shield *10
-
-func warhammers()
-  equipL warhammer *8
-  equipR warhammer *8 poison
-
-func sword_xpstone()
-  equipR sword *10
-  equipL experience
-
-func dashing()
-  equipL sword *10
-  equipR dash *8
-
-func poison_staff()
-  equip staff poison *10
-
-func megasword()
-  equip blade_of_god
-
-func dps()
-  equip blade_of_god
-  
-func armor_piercing()
-  equipR warhammer *9
-  equipL sword *10
-
-func vigor_staff()
-  equip staff vigor *8
-
-func speed_shield()
-  equipL triskelion
-  equipR shield *10
-
-func aether_sword_shield()
-  equipL sword *8 aether
-  equipR shield *10 aether
-
-func shovel()
-  equip shovel
-  
-func fire_staff()
-  equip staff fire *10
-
+// Place this function at the default case
+// of any switch-case
 func healwalk()
   // Pick up materials quickly with Star stone
   ?pickup.distance < 10
-      equipL star
-      equipR shield *10
+    equipL star
+    equipR shield *10
   // Heal and gain armor while just walking
   // towards next objective. If 100% healed,
   // walk faster.
