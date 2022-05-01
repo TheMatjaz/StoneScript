@@ -8,29 +8,44 @@ Level: Deadwood canyon
 
 var loadouts = import my/loadouts
 
-// Apply health potion on low health.
-?hp < 5
-  activate potion
+func equip_melee()
+  equipL sword *10
+  equipR shield *10 poison
+
+func equip_dashing()
+  equipL sword *10
+  equipR shield *10 dashing
+
+func equip_ranged_healing()
+  equipL crossbow *10
+  equipR ouroboros
+
+func equip_ranged()
+  equip repeating crossbow *10
 
 ?loc = deadwood
   // Small enemies
   ?foe = mosquito
-    loadouts.crossbow_shield()
+    ?foe.distance >= 5
+      equip_ranged()
+    :
+      equip_melee()
   :?foe = scarab
-    loadouts.sword_shield()
-  // Boss: Xyaloalgia, residue of Leuce
-  :?foe = boss
-     loadouts.sword_shield()
-    // About to kill the boss, equip Experience
-    // stone to get double XP points.
-    ?foe.armor = 0 & foe.hp < 25
-      loadouts.sword_xpstone()
-
-  // Cut down trees with the hatchet
-  ?harvest.distance < 10
-    equip hatchet
-    ?harvest.distance <= 4 &  // At the tree
-    ^item.GetCooldown("hatchet") <= 0
-      activate R
-
+    equip_melee()
+  :?foe = boss | foe = poena
+    // Boss: Xyaloalgia, residue of Leuce
+    // and Poena, its phase 2
+    ?foe.distance >= 8
+      equip_dashing()
+    :
+      equip_melee()
+  ?hp <= 10
+    activate potion
   loadouts.healwalk()
+  ?harvest.distance < 10
+    // Cut down trees with the hatchet
+    // using the fast-cutting when available
+    equip hatchet
+    ?harvest.distance <= 4
+    ^& item.GetCooldown("hatchet") <= 0
+      activate R

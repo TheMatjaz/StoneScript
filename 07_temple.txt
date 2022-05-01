@@ -9,11 +9,11 @@ Level: Temple
 var loadouts = import my/loadouts
 
 ?loc = temple
-  equip staff *10 poison
+  equip staff *8 ice
   ?hp <= 10
     activate potion
 
 ?loc = nagaraja
   equip blade_of_god
-  ?hp <= 10 | ?debuffs.count >= 8
+  ?hp <= 10 | debuffs.count >= 8
     activate potion
