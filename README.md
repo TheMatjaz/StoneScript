@@ -5,9 +5,14 @@ My StoneScript code used in the **amazing** ASCII-art game [Stone Story
 RPG](https://store.steampowered.com/app/603390/Stone_Story_RPG/)
 to automate it.
 
-> Check when the scripts were relased vs. what the game version was
-> [at the time](https://stonestoryrpg.com/releasenotes/), as the
-> code may not be compatible with your (later) version of the game.
+DISCLAIMER
+----------------------------------------
+
+Compare the date of when the scripts were created (commit date)
+to the [latest game releases](https://stonestoryrpg.com/releasenotes/).
+
+I'm not playing this game often, so I **cannot guarantee** the scripts
+still work properly with any newer version of the game.
 
 
 What is this?
