@@ -17,7 +17,7 @@ func healwalk()
   // Heal and gain armor while just walking
   // towards next objective. If 100% healed,
   // walk faster.
-  :?target = waypoint | foe.distance > 22
+  :?foe.distance > 22
     ?hp < maxhp
       equipL ouroboros
       equipR shield *10
